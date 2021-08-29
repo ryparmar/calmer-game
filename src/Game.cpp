@@ -115,12 +115,9 @@ void Game::generateFood()
     //Randomly generate dots
     SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
     int x, y;
-    for (int i = 0; i < 10; i++)
-    {
-        x = rand() % SCREEN_WIDTH;
-        y = rand() % SCREEN_HEIGHT;
-        SDL_RenderDrawPoint(gRenderer, x, y);
-    }
+    x = rand() % SCREEN_WIDTH;
+    y = rand() % SCREEN_HEIGHT;
+    SDL_RenderDrawPoint(gRenderer, x, y);
     SDL_RenderPresent(gRenderer);
 }
 

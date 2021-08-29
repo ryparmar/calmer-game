@@ -3,6 +3,7 @@
 int main(int argc, char *args[])
 {
     Game *game = new Game();
+    unsigned int last_time = 0, curr_time;
 
     //Start up SDL and create window
     if (!game->init())
@@ -39,7 +40,14 @@ int main(int argc, char *args[])
 
                 // game->applyPicture();
                 game->playMusic();
-                game->generateFood();
+
+                // Add food every second
+                curr_time = SDL_GetTicks();
+                if (curr_time > last_time + 1000)
+                {
+                    game->generateFood();
+                    last_time = curr_time;
+                }
             }
 
             //Stop the music
